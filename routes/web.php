@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UsersController;
 
@@ -20,9 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Backend Controllers 
-
+Route::get('admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 Route::resource('users',UsersController::class);
