@@ -2,25 +2,74 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" />
+	<meta name="author" content="" />
+	<meta name="robots" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="LaraStart - Laravel Project Starter" />
+	<meta property="og:title" content="LaraStart - Laravel Project Starter" />
+	<meta property="og:description" content="LaraStart - Laravel Project Starter" />
+	<meta property="og:image" content="" />
+	<meta name="format-detection" content="telephone=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'LaraStart') }} | @yield('title')</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+	<link rel="stylesheet" href="{{ asset('assets/backend/vendor/chartist/css/chartist.min.css')}}">
+    <link href="{{ asset('assets/backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
+	<link href="{{ asset('assets/backend/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/backend/css/style.css')}}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack('vendor-css')
+    @stack('onpage-css')
 </head>
 <body>
-    <div id="app">
+    <!--*******************
+        Preloader start
+    ********************-->
+    @include('layouts.partials.backend.preloader')
+    <!--*******************
+        Preloader end
+    ********************-->
+    <div id="main-wrapper">
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+       @include('layouts.partials.backend.header')
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+		<!--**********************************
+            Header start
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        @include('layouts.partials.backend.left-sidebar')
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        @yield('content')
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+       @include('layouts.partials.backend.footer')
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    {{-- <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -78,6 +127,20 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div> --}}
+    <!-- Required vendors -->
+    <script src="{{ asset('assets/backend/vendor/global/global.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+    
+    <!-- Dashboard 1 -->
+    <script src="{{ asset('assets/backend/js/dashboard/dashboard-1.js')}}"></script>
+    
+    <script src="{{ asset('assets/backend/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/custom.min.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/deznav-init.js')}}"></script>
+    <script src="{{ asset('assets/backend/js/demo.js')}}"></script>
+    @stack('vendor-js')
+    @stack('onpage-js')
 </body>
 </html>
