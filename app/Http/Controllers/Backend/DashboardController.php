@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,6 +16,7 @@ class DashboardController extends Controller
     // Dashboard
     public function dashboard()
     {
+        // Toastr::success('Success Success SuccessSuccessSuccessSuccess','Success');
         return view('backend.dashboard.dashboard');
     }
 }
