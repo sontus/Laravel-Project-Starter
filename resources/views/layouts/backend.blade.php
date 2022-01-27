@@ -6,16 +6,16 @@
 	<meta name="author" content="" />
 	<meta name="robots" content="" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="description" content="LaraStart - Laravel Project Starter" />
-	<meta property="og:title" content="LaraStart - Laravel Project Starter" />
-	<meta property="og:description" content="LaraStart - Laravel Project Starter" />
+	<meta name="description" content="AASCO - Web" />
+	<meta property="og:title" content="AASCO - Web" />
+	<meta property="og:description" content="AASCO - Web" />
 	<meta property="og:image" content="" />
 	<meta name="format-detection" content="telephone=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'LaraStart') }} | @yield('title')</title>
+    <title>{{ config('app.name', 'AASCO') }} | @yield('title')</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
     <!-- laravel-toastr css -->
@@ -26,7 +26,12 @@
     <link href="{{ asset('assets/backend/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
 	<link href="{{ asset('assets/backend/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{ asset('assets/backend/css/style.css')}}" rel="stylesheet">
-
+    <style>
+        .req{
+            color:red;
+            font-weight: 700;
+        }
+    </style>
     @stack('vendor-css')
     @stack('onpage-css')
 </head>

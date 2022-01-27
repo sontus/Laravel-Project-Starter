@@ -7,13 +7,13 @@
 				<ul class="metismenu" id="menu">
 					<li class="nav-label first">Main Menu</li>
 					<li>
-						<a href="#" class="ai-icon" aria-expanded="false">
+						<a href="{{ route('category.index')}}" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-381-settings-2"></i>
 							<span class="nav-text">Category</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="ai-icon" aria-expanded="false">
+						<a href="{{ route('sub-category.index')}}" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-381-settings-2"></i>
 							<span class="nav-text">Sub Category</span>
 						</a>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UsersController;
 
@@ -25,5 +27,10 @@ Auth::routes();
 
 
 // Backend Controllers 
-Route::get('admin/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
-Route::resource('users',UsersController::class);
+
+Route::group(['prefix'=>'admin','middleware' => 'auth'],function (){
+    Route::get('dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+    Route::resource('category',CategoryController::class);
+    Route::resource('sub-category',SubCategoryController::class);
+    Route::resource('users',UsersController::class);
+});
